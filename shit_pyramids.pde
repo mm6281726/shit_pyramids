@@ -7,7 +7,7 @@ PVector[] grid;
 color pink;
 
 Pyramid[] pyramids;
-int maxPyramids = 256;
+int maxPyramids = 16;
 int totalPyramids = 0;
 
 PImage img;
@@ -15,15 +15,12 @@ PImage img;
 void setup(){
   size(displayWidth,displayHeight, P3D);
   pyramids = new Pyramid[maxPyramids];
-  pyramids[totalPyramids] = new Pyramid();
-  totalPyramids++;
   
   img = loadImage("19.jpg");
   img.resize(width, height);
 }
 
 void draw(){
-  System.out.println(random(frameCount));
   if(totalPyramids < maxPyramids && Math.round(random(frameCount)) % 2 == 0){
     pyramids[totalPyramids] = new Pyramid();
     totalPyramids++;

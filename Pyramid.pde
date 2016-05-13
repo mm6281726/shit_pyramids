@@ -1,6 +1,5 @@
 class Pyramid {
   float x, y;
-  float w, h;
   float angle;
   float movementSpeed;
   float spin;
@@ -14,28 +13,25 @@ class Pyramid {
   final static String LEFT = "LEFT";
 
   Pyramid() {
-    randomizer = frameCount+2;
-    angle = Math.abs(sin(randomizer));
+    randomizer = frameCount+10000;
+    angle = sin(randomizer)+1;
     
     boolean decisioner = randomizer % 2 == 0;
-    x = decisioner ? 0.0 :  width + 5.0;
+    x = decisioner ? -5.0 :  width + 5.0;
     y = sin(frameCount)*height;
     direction = decisioner ? RIGHT : LEFT;
     
-    w = angle*100;
-    h = angle*100;
-    
-    movementSpeed = angle*2;
+    movementSpeed = (angle+1)/100;
     
     spinSpeed = angle*0.1;
-    spin = randomizer;
+    spin = frameCount;
   }
 
   void draw() {
     spin += spinSpeed;
     
     x = direction == RIGHT ? x + movementSpeed : x - movementSpeed;
-    y = y + sin(randomizer)*angle;
+    y = y + sin(frameCount)*angle;
     
     translate(x, y, 0);
     rotateX(PI/2*angle);
