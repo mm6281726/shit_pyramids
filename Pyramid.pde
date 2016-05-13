@@ -17,12 +17,10 @@ class Pyramid {
     randomizer = frameCount+1;
     angle = sin(randomizer);
     
-    boolean decisioner = randomizer % 2 == 0;
+    boolean decisioner = randomizer % 3 == 0;
     x = decisioner ? 0.0 :  width + 5.0;
     y = sin(frameCount)*height;
     direction = decisioner ? RIGHT : LEFT;
-    //x = width;
-    //y = height;
     
     w = angle*100;
     h = angle*100;
