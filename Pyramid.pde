@@ -14,10 +14,10 @@ class Pyramid {
   final static String LEFT = "LEFT";
 
   Pyramid() {
-    randomizer = frameCount+1;
-    angle = sin(randomizer);
+    randomizer = frameCount+2;
+    angle = Math.abs(sin(randomizer));
     
-    boolean decisioner = randomizer % 3 == 0;
+    boolean decisioner = randomizer % 2 == 0;
     x = decisioner ? 0.0 :  width + 5.0;
     y = sin(frameCount)*height;
     direction = decisioner ? RIGHT : LEFT;
@@ -35,7 +35,7 @@ class Pyramid {
     spin += spinSpeed;
     
     x = direction == RIGHT ? x + movementSpeed : x - movementSpeed;
-    y = y + randomizer*angle;
+    y = y + sin(randomizer)*angle;
     
     translate(x, y, 0);
     rotateX(PI/2*angle);
