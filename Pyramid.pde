@@ -40,7 +40,7 @@ class Pyramid {
     movementSpeed = (angle+1)*(0.5/(position+1));
 
     spinSpeed = (angle)*(0.05/(position+1));
-    spin = cos(frameCount);
+    spin = tan(frameCount);
 
     //texture = loadImage("logo1.jpg");
   }
