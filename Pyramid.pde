@@ -12,18 +12,20 @@ class Pyramid {
   final static String RIGHT = "Right";
   final static String LEFT = "LEFT";
 
-  Pyramid() {
+  Pyramid(int pos) {
     randomizer = frameCount+10000;
     angle = sin(randomizer)+1;
     
-    boolean decisioner = randomizer % 2 == 0;
-    x = decisioner ? -5.0 :  width + 5.0;
+    boolean decisioner = randomizer % 241 == 0;
+    x = decisioner ? 0.0 :  width;
     y = sin(frameCount)*height;
     direction = decisioner ? RIGHT : LEFT;
     
-    movementSpeed = (angle+1)/100;
+    position = pos;
     
-    spinSpeed = angle*0.1;
+    movementSpeed = (angle+1)*0.01;
+    
+    spinSpeed = angle*0.01;
     spin = frameCount;
   }
 
@@ -31,11 +33,14 @@ class Pyramid {
     spin += spinSpeed;
     
     x = direction == RIGHT ? x + movementSpeed : x - movementSpeed;
-    y = y + sin(frameCount)*angle;
+    y = y + sin(frameCount)*movementSpeed;
     
-    translate(x, y, 0);
-    rotateX(PI/2*angle);
-    rotateZ(spin*-PI/6);
+    specular(51, 51, 51);
+    
+    //translate(x/4, y/4, sin(frameCount));
+    //rotateX(PI/2*angle);
+    //rotateZ(spin*-PI/6);
+    //translate(x/4, y/4, sin(frameCount));
     noStroke();
 
     beginShape(TRIANGLE);
@@ -70,5 +75,10 @@ class Pyramid {
     vertex( 100, 100, -100);
     vertex( 100, -100, -100);
     endShape();
+    
+    translate(x/4, y/4, sin(frameCount));
+    rotateX(PI/2*angle);
+    rotateZ(spin*-PI/6);
+    //translate(x/4, y/4, sin(frameCount));
   }
 }
