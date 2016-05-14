@@ -27,7 +27,7 @@ void setup(){
 }
 
 void draw(){  
-  if(Math.round(random(frameCount)) % 3 == 0){
+  if(Math.round(random(frameCount)) % 2 == 0){
     createPyramids();
   }
   
