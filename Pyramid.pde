@@ -11,6 +11,7 @@ class Pyramid {
 
   final static String RIGHT = "Right";
   final static String LEFT = "LEFT";
+  final color gold = color(212, 174, 55);
 
   Pyramid(int pos) {
     randomizer = frameCount+10000;
@@ -43,34 +44,33 @@ class Pyramid {
     //translate(x/4, y/4, sin(frameCount));
     noStroke();
 
-    beginShape(TRIANGLE);
-    
-    fill(212, 174, 55);
+    beginShape(TRIANGLE);    
+    fill(gold);
     vertex(-100, -100, -100);
     vertex( 100, -100, -100);
     vertex(   0, 0, 100);
 
-    fill(212, 174, 55);
+    fill(gold);
     vertex( 100, -100, -100);
     vertex( 100, 100, -100);
     vertex(   0, 0, 100);
 
-    fill(212, 174, 55);
+    fill(gold);
     vertex( 100, 100, -100);
     vertex(-100, 100, -100);
     vertex(   0, 0, 100);
 
-    fill(212, 174, 55);
+    fill(gold);
     vertex(-100, 100, -100);
     vertex(-100, -100, -100);
     vertex(   0, 0, 100);
     
-    fill(212, 174, 55);
+    fill(gold);
     vertex(-100, 100, -100);
     vertex(-100, -100, -100);
     vertex( 100, 100, -100);
     
-    fill(212, 174, 55);
+    fill(gold);
     vertex(-100, -100, -100);
     vertex( 100, 100, -100);
     vertex( 100, -100, -100);
